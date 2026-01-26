@@ -1,0 +1,289 @@
+/* Globale Anpassungen */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Video-Hintergrund */
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.1); 
+}
+
+/* Overlay */
+#start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+#start-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.overlay-content {
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.overlay-content:hover {
+    transform: scale(1.02);
+}
+
+/* Haupt Layout */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Glas Fenster */
+.liquid-glass-window {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-radius: 30px;
+    padding: 40px 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    transform-style: preserve-3d;
+}
+
+.header-section h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.header-section p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+/* Allgemeine Button Styles */
+.liquid-glass-btn {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-glass-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-glass-btn img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+/* Social Row (Die oberen 2) */
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* --- NEUE BUTTON SEKTION --- */
+.app-section {
+    margin-bottom: 30px;
+    text-align: left; /* Überschrift linksbündig oder center */
+    padding: 0 10px;
+}
+
+.section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 12px;
+    text-align: center; /* Zentriert die Überschrift */
+}
+
+.app-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Spezieller Style für die 3 neuen Buttons, falls gewünscht */
+.app-btn {
+    /* Gleicher Style wie oben, aber man könnte hier abweichen */
+    width: 60px;
+    height: 60px;
+}
+
+
+/* --- KEY UI STYLES --- */
+.key-menu-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.key-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 18px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.key-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.key-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.key-input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: border-color 0.3s ease;
+}
+
+.key-input-group:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.key-icon-wrapper {
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.key-value-wrapper {
+    flex-grow: 1;
+    padding: 0 12px;
+    overflow: hidden;
+}
+
+.key-value {
+    font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.copy-btn-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.copy-btn-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.copy-btn-icon:active {
+    transform: scale(0.92);
+}
+
+.copy-btn-icon.copied {
+    background: #00ff88;
+    color: #000;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Ripple Effekt */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animate 0.6s linear;
+    background: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+}
+
+@keyframes ripple-animate {
+    to {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
