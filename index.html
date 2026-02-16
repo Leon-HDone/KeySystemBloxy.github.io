@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloxy Studios</title>
+    <meta name="description" content="Bloxy Studios Premium Script Hub - Access scripts, keys, and executors.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/images/key-icon-26605.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Start Overlay -->
+    <div id="start-overlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+            </div>
+            <span>Click to Start</span>
+            <div class="overlay-pulse"></div>
+        </div>
+    </div>
+
+    <!-- Animated Neon Lines Background -->
+    <canvas id="neon-bg"></canvas>
+
+    <!-- Background Music -->
+    <audio autoplay loop id="background-music">
+        <source src="assets/audio/background_music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Particles -->
+    <div id="particles-container"></div>
+
+    <!-- Main App Shell -->
+    <div class="app-shell">
+
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5"></path>
+                        <path d="M2 12l10 5 10-5"></path>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">Bloxy</span>
+                    <span class="brand-sub">Studios</span>
+                </div>
+            </div>
+
+            <div class="sidebar-nav">
+                <button class="nav-item active" data-tab="scripts" id="nav-scripts">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Scripts</span>
+                    <div class="nav-indicator"></div>
+                </button>
+
+                <button class="nav-item" data-tab="key" id="nav-key">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Key</span>
+                    <div class="nav-indicator"></div>
+                </button>
+
+                <button class="nav-item" data-tab="discord" id="nav-discord">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286z" />
+                        </svg>
+                    </div>
+                    <span class="nav-label">Discord</span>
+                    <div class="nav-indicator"></div>
+                </button>
+
+                <button class="nav-item" data-tab="executors" id="nav-executors">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Executors</span>
+                    <div class="nav-indicator"></div>
+                </button>
+
+                <button class="nav-item" data-tab="opensource" id="nav-opensource">
+                    <div class="nav-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="nav-label">Open Source</span>
+                    <div class="nav-indicator"></div>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="status-badge">
+                    <span class="status-dot-live"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area" id="content-area">
+
+            <!-- ===== SCRIPTS TAB ===== -->
+            <section class="tab-content active" id="tab-scripts">
+                <div class="tab-header">
+                    <h1 class="tab-title">Scripts</h1>
+                    <p class="tab-subtitle">Select a script to copy it</p>
+                </div>
+
+                <div class="scripts-grid">
+                    <!-- Script Card 1 -->
+                    <div class="script-card" data-anim-delay="0">
+                        <div class="script-card-glow"></div>
+                        <div class="script-card-inner">
+                            <div class="script-icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="script-info">
+                                <h3>War Tycoon Hub</h3>
+                                <span class="script-tag">Game Script</span>
+                            </div>
+                            <p class="script-desc">The Best Script for War Tycoon.</p>
+                            <button class="script-copy-btn"
+                                data-script="loadstring(game:HttpGet('https://raw.githubusercontent.com/Leon-HDone/WarTycoon-HubBloxy/main/Source.lua'))()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                <span>Copy Script</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Script Card 2 -->
+                    <div class="script-card" data-anim-delay="1">
+                        <div class="script-card-glow"></div>
+                        <div class="script-card-inner">
+                            <div class="script-icon script-icon-purple">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="script-info">
+                                <h3>Coming Soon</h3>
+                                <span class="script-tag script-tag-soon">Coming Soon</span>
+                            </div>
+                            <p class="script-desc">New script will be added soon.</p>
+                            <button class="script-copy-btn disabled" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                                <span>Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Script Card 3 -->
+                    <div class="script-card" data-anim-delay="2">
+                        <div class="script-card-glow"></div>
+                        <div class="script-card-inner">
+                            <div class="script-icon script-icon-cyan">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="script-info">
+                                <h3>Coming Soon</h3>
+                                <span class="script-tag script-tag-soon">Coming Soon</span>
+                            </div>
+                            <p class="script-desc">New script will be added soon.</p>
+                            <button class="script-copy-btn disabled" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg>
+                                <span>Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== KEY TAB ===== -->
+            <section class="tab-content" id="tab-key">
+                <div class="tab-header">
+                    <h1 class="tab-title">Access Key</h1>
+                    <p class="tab-subtitle">Your personal access key</p>
+                </div>
+
+                <div class="key-display-card">
+                    <div class="key-display-header">
+                        <div class="key-label-group">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <span>Your Key</span>
+                        </div>
+                        <span class="key-status">
+                            <span class="status-dot-live"></span>
+                            Active
+                        </span>
+                    </div>
+                    <div class="key-value-display">
+                        <span class="key-mono" id="the-key">bestkeyever</span>
+                        <button id="copy-key-btn" class="key-copy-action" aria-label="Copy Key">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </button>
+                    </div>
+                    <div class="key-info-note">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <span>Enter this key in the executor to use the scripts</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== DISCORD TAB ===== -->
+            <section class="tab-content" id="tab-discord">
+                <div class="tab-header">
+                    <h1 class="tab-title">Discord</h1>
+                    <p class="tab-subtitle">Join our community</p>
+                </div>
+
+                <div class="discord-card">
+                    <div class="discord-banner">
+                        <div class="discord-logo">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286z" />
+                            </svg>
+                        </div>
+                        <h2>Bloxy Studios</h2>
+                        <p class="discord-members">
+                            <span class="status-dot-live"></span>
+                            Community Server
+                        </p>
+                    </div>
+                    <div class="discord-body">
+                        <p>Join us to get updates, support and exclusive scripts.</p>
+                        <a href="https://discord.gg/zbWTqPNbdd" target="_blank" class="discord-join-btn"
+                            id="discord-join-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286z" />
+                            </svg>
+                            <span>Join Discord</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== EXECUTORS TAB ===== -->
+            <section class="tab-content" id="tab-executors">
+                <div class="tab-header">
+                    <h1 class="tab-title">Executors</h1>
+                    <p class="tab-subtitle">Recommended executor downloads</p>
+                </div>
+
+                <div class="executors-grid">
+                    <a href="https://discord.gg/velocityide" target="_blank" class="executor-card" data-anim-delay="0"
+                        id="executor-velocity">
+                        <div class="executor-icon-wrap">
+                            <img src="assets/images/icon1.png" alt="Velocity">
+                        </div>
+                        <div class="executor-info">
+                            <h3>Velocity</h3>
+                            <span class="executor-badge">Recommended</span>
+                        </div>
+                        <div class="executor-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://xeno.now" target="_blank" class="executor-card" data-anim-delay="1"
+                        id="executor-xeno">
+                        <div class="executor-icon-wrap">
+                            <img src="assets/images/icon2.png" alt="Xeno">
+                        </div>
+                        <div class="executor-info">
+                            <h3>Xeno</h3>
+                            <span class="executor-badge executor-badge-blue">Popular</span>
+                        </div>
+                        <div class="executor-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://discord.gg/bunnilol" target="_blank" class="executor-card" data-anim-delay="2"
+                        id="executor-bunni">
+                        <div class="executor-icon-wrap">
+                            <img src="assets/images/icon3.png" alt="Bunni">
+                        </div>
+                        <div class="executor-info">
+                            <h3>Bunni</h3>
+                            <span class="executor-badge executor-badge-pink">New</span>
+                        </div>
+                        <div class="executor-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ===== OPEN SOURCE TAB ===== -->
+            <section class="tab-content" id="tab-opensource">
+                <div class="coming-soon-wrap">
+                    <div class="coming-soon-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h1 class="coming-soon-title">Coming Soon</h1>
+                    <p class="coming-soon-sub">Open Source scripts are currently being developed.</p>
+                    <div class="coming-soon-divider"></div>
+                    <p class="coming-soon-note">Stay tuned — free community scripts will be available here soon.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Copied!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
